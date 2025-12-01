@@ -15,6 +15,7 @@ func main() {
 	mux.HandleFunc("/status", handlers.HandleGetStatus)
 	mux.HandleFunc("/users", handlers.HandleGetUsers)
 	mux.HandleFunc("/create_event", handlers.HandleCreateEvent)
+	mux.HandleFunc("/delete_event", handlers.HandleDeleteEvent)
 
 	log.Println("Server is running at :8080")
 	http.ListenAndServe(":8080", mux)
