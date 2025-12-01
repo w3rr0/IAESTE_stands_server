@@ -2,7 +2,9 @@ package repository
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
+	"log"
 	"strings"
 	"time"
 )
@@ -44,11 +46,20 @@ func CreateEvent(db *sql.DB, start time.Time, end time.Time) error {
 }
 
 func DeleteEvent(db *sql.DB, eventId int) error {
+	check, err := IfTableExist(db, eventId)
+	if err != nil {
+		return err
+	}
+	if !check {
+		return errors.New("no corresponding event in database")
+	}
+
 	toDelete := fmt.Sprintf("table_%d", eventId)
+
 	query1 := fmt.Sprintf("DROP TABLE %q", toDelete)
 	query2 := fmt.Sprintf("DELETE FROM event_manager WHERE id = %d", eventId)
 
-	_, err := db.Exec(query1)
+	_, err = db.Exec(query1)
 	if err != nil {
 		return err
 	}
