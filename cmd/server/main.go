@@ -18,5 +18,8 @@ func main() {
 	mux.HandleFunc("/delete_event", handlers.HandleDeleteEvent)
 
 	log.Println("Server is running at :8080")
-	http.ListenAndServe(":8080", mux)
+	err := http.ListenAndServe(":8080", mux)
+	if err != nil {
+		return
+	}
 }
