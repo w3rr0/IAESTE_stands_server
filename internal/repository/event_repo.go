@@ -12,16 +12,16 @@ func CreateEvent(db *sql.DB, start time.Time, end time.Time) error {
 		return fmt.Errorf("end time must be greater than start time")
 	}
 
-	var new_id int
+	var newId int
 
 	err := db.QueryRow(
 		`INSERT INTO event_manager DEFAULT VALUES RETURNING id`,
-	).Scan(&new_id)
+	).Scan(&newId)
 	if err != nil {
 		return err
 	}
 
-	newName := fmt.Sprintf("table_%d", new_id)
+	newName := fmt.Sprintf("table_%d", newId)
 	columns := CreateColumnsFromTime(start, end)
 	var colDefs []string
 	for _, colName := range columns {
