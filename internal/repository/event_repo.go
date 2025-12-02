@@ -46,12 +46,9 @@ func CreateEvent(db *sql.DB, start time.Time, end time.Time) error {
 }
 
 func DeleteEvent(db *sql.DB, eventId int) error {
-	check, err := IfTableExist(db, eventId)
+	err := CheckTable(db, eventId)
 	if err != nil {
 		return err
-	}
-	if !check {
-		return errors.New("no corresponding event in database")
 	}
 
 	toDelete := tableFrom(eventId)
