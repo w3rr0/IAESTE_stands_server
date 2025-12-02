@@ -71,6 +71,34 @@ func DeleteEvent(db *sql.DB, eventId int) error {
 	return nil
 }
 
+func ChangeAvailability(db *sql.DB, eventId int, userId int, availability map[string]string) error {
+	err := CheckUser(db, userId)
+	if err != nil {
+		return err
+	}
+
+	colNames := getMapKeys(availability)
+	err = CheckTableColumns(db, eventId, colNames)
+	if err != nil {
+		return err
+	}
+
+	colValues := getMapValues(availability)
+	err = CheckValues(colValues)
+	if err != nil {
+		return err
+	}
+
+	for timeSlot, attendance := range availability {
+		err := SetAvailabilityFor(db, tableFrom(eventId), timeSlot, attendance, userId)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func CreateColumnsFromTime(start time.Time, end time.Time) []string {
 	roundedStart := RoundToHalfHour(start)
 	roundedEnd := RoundToHalfHour(end)
