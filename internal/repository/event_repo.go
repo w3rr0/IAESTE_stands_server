@@ -54,7 +54,7 @@ func DeleteEvent(db *sql.DB, eventId int) error {
 		return errors.New("no corresponding event in database")
 	}
 
-	toDelete := fmt.Sprintf("table_%d", eventId)
+	toDelete := tableFrom(eventId)
 
 	query1 := fmt.Sprintf("DROP TABLE %q", toDelete)
 	query2 := fmt.Sprintf("DELETE FROM event_manager WHERE id = %d", eventId)
