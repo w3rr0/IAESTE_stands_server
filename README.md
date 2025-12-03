@@ -1,6 +1,15 @@
-# Serwer dla stanowisk IAESTE
-Poniższa instrukcja pomoże Ci skonfigurować środowisko,
-przygotować bazę danych i uruchomić aplikację lokalnie.
+# MyLC for IAESTE
+
+My Local Committee to aplikacja, która ułatwia organizację stanowisk oraz innych eventów,
+poprzez uproszczenie systemu zapisów przez członków i organizatorów.
+Automatycznie tworzy konta członków na bazie maila `@iaeste.pl`,
+śledzi zgłoszenia obecności, a co najważniejsze jest kompatybilna z
+urządzeniami mobilnymi jak i stacjonarnymi
+
+Poniższa instrukcja służy pomocy w konfiguracji środowiska,
+przygotowaniu bazy danych oraz uruchomieniu aplikacji lokalnie.
+Jeśli chcesz na jej bazie zbudować kompletny system dla swojego komitetu,
+do czego gorąco zachęcam, poniżej znajdują się przydatne materiały.
 
 ## 📋 Wymagania wstępne
 Zanim zaczniesz, upewnij się, że masz zainstalowane następujące narzędzia:
