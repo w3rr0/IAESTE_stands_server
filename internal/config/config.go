@@ -15,3 +15,5 @@ func init() {
 }
 
 var DatabaseURL = os.Getenv("DATABASE_URL")
+var EmailUser = os.Getenv("EMAIL_USER")
+var EmailPassword = os.Getenv("EMAIL_PASSWORD")
