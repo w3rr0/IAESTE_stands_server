@@ -80,6 +80,16 @@ func CreateUser(db *sql.DB, email string, password string) error {
 	return nil
 }
 
+func sendVerificationEmail(to string, token string) error {
+	smtpHost := "smtp.gmail.com"
+	smtpPort := "587"
+
+	message := fmt.Sprintf("Verification Link: http://localhost:8080/verify?token=%s", token)
+	auth := smtp.PlainAuth("", config.EmailUser, config.EmailPassword, smtpHost)
+
+	return smtp.SendMail(smtpHost+":"+smtpPort, auth, config.EmailUser, []string{to}, []byte(message))
+}
+
 func CheckAccount(db *sql.DB, email string) (bool, error) {
 	var exists bool
 
