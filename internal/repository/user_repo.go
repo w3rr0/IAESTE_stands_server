@@ -5,7 +5,10 @@ import (
 	"database/sql"
 	"encoding/hex"
 	"errors"
+	"fmt"
+	"go_server/internal/config"
 	"go_server/internal/models"
+	"net/smtp"
 
 	"golang.org/x/crypto/bcrypt"
 )
