@@ -17,6 +17,17 @@ VALUES
     ('Alicja', 'Nowak', 'alicja.nowak@iaeste.pl', 'Grafika');
 
 
+-- Schema for user login and password
+
+-- Create Table
+CREATE TABLE accounts
+( email VARCHAR(255) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  verification_token VARCHAR(64),
+  is_verified BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Schema for event_manager and event tables
 
 -- Create event_manager
