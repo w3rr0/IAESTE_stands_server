@@ -166,6 +166,7 @@ func CheckAccount(db *sql.DB, email string) (bool, error) {
 			SELECT 1
 			FROM users
 			WHERE email = $1
+		)
 	`, email).Scan(&exists)
 
 	return exists, err
