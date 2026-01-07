@@ -1,5 +1,14 @@
 # API DOC
 
+## Server
+
+#### /status
+
+- Method: GET
+- Description: Check the status of the server.
+- Response:
+  - 200 OK: Server is running.
+
 ## Users
 
 #### /users
