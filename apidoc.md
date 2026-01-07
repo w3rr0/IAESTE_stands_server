@@ -35,7 +35,7 @@
 - Method: GET
 - Description: Verify user and create account.
 - Request Body:
-  - verification_code: string (required)
+  - token: string (required)
 - Response:
   - 200 OK: User verified successfully.
   - 400 Bad Request: Invalid verification code.
@@ -48,7 +48,7 @@
 - Method: POST
 - Description: Retrieve all current events for a user.
 - Request Body:
-  - user_id: string (required)
+  - user_id: int (required)
 - Response:
   - 200 OK: Returns a list of current events.
   - 400 Bad Request: Invalid user ID.
@@ -72,7 +72,7 @@
 - Method: POST
 - Description: Delete an existing event.
 - Request Body:
-  - event_id: string (required)
+  - event_id: int (required)
 - Response:
   - 200 OK: Event deleted successfully.
   - 400 Bad Request: Invalid event ID.
