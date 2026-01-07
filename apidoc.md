@@ -56,6 +56,17 @@
 
 #### /create_event
 
+- Method: POST
+- Description: Create a new event.
+- Request Body:
+  - start: timestamp (required)
+  - end: timestamp (required)
+  - event_name: string (required)
+- Response:
+  - 200 OK: Event created successfully.
+  - 400 Bad Request: Invalid input data.
+  - 500 Internal Server Error: Server error.
+
 #### /delete_event
 
 #### /change_availability
