@@ -79,3 +79,14 @@
   - 500 Internal Server Error: Server error.
 
 #### /change_availability
+
+- Method: POST
+- Description: Change user availability.
+- Request Body:
+  - user_id: int (required)
+  - event_id: int (required)
+  - availability: map[string][string] (required)
+- Response:
+  - 200 OK: Availability changed successfully.
+  - 400 Bad Request: Invalid input data.
+  - 500 Internal Server Error: Server error.
